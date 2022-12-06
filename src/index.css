@@ -1,13 +1,70 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@font-face {
+  font-family: 'SairaCondensed-Black';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Black.ttf') format('truetype');
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+@font-face {
+  font-family: 'SairaCondensed-Bold';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-ExtraBold';
+  src: url('./assets/Saira_Condensed/SairaCondensed-ExtraBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-ExtraLight';
+  src: url('./assets/Saira_Condensed/SairaCondensed-ExtraLight.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-Light';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Light.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-Medium';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Medium.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-Regular';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-SemiBold';
+  src: url('./assets/Saira_Condensed/SairaCondensed-SemiBold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'SairaCondensed-Thin';
+  src: url('./assets/Saira_Condensed/SairaCondensed-Thin.ttf') format('truetype');
+}
+
+html,
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+ul,
+ol,
+li,
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  font-family: "Saira Condensed", "Open Sans", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-size: 14px;
+  font-weight: 400;
 }
