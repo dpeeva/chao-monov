@@ -1,28 +1,33 @@
-import React from 'react'
-import logo from './logo.svg'
-import './App.css'
-import { Header } from './partials/Header'
+import React from "react"
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+} from "react-router-dom"
+
+import { Content } from "./partials/Content"
+import { Header } from "./partials/Header"
+import "./App.css"
+import Bots from "./Bots"
+import Withdraw from "./Withdraw"
 
 function App() {
-  return (
-    <div className="App">
-      <Header balance={0} />
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  )
+    return (
+        <Router>
+            <Header balance={0} />
+            <div className="page-wrap">
+                <Content>
+                    <Routes>
+                        {/* <Route path='/' element={<App />}></Route> */}
+                        <Route path='/bots' element={<Bots />}></Route>
+                        <Route path='/withdraw' element={<Withdraw />}></Route>
+                    </Routes>
+                </Content>
+            </div>
+
+            Repeatable
+        </Router>
+    )
 }
 
 export default App
