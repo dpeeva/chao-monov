@@ -1,12 +1,12 @@
 import React from "react"
 import { InnerWrap } from "./partials/InnerWrap"
 
-function Bots() {
+function Hiring() {
     return (
         <InnerWrap>
-            Bots
+            Hiring
         </InnerWrap>
     )
 }
 
-export default Bots
+export default Hiring

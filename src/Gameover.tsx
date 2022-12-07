@@ -1,12 +1,12 @@
 import React from "react"
 import { InnerWrap } from "./partials/InnerWrap"
 
-function Bots() {
+function Gameover() {
     return (
         <InnerWrap>
-            Bots
+            Game Over
         </InnerWrap>
     )
 }
 
-export default Bots
+export default Gameover

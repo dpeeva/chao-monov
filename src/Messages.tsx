@@ -1,12 +1,12 @@
 import React from "react"
 import { InnerWrap } from "./partials/InnerWrap"
 
-function Bots() {
+function Messages() {
     return (
         <InnerWrap>
-            Bots
+            Messages
         </InnerWrap>
     )
 }
 
-export default Bots
+export default Messages
