@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { Button } from "./components/Button"
 import { Message } from "./components/Message"
 import { InnerWrap } from "./partials/InnerWrap"
-import Monov_working from "./assets/imgs/Monov_working.svg"
+import { Monov_working } from "./assets"
 import { useNavigate } from "react-router-dom"
 
 const HomeWrap = styled(InnerWrap)`

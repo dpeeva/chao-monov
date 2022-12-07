@@ -1,7 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import chao from "./assets/imgs/chao.svg"
-import Monov from "./assets/imgs/Niki.jpeg"
+import { chao, Monov } from "./assets"
 import { Message } from "./components/Message"
 import { InnerWrap } from "./partials/InnerWrap"
 import { requirements } from "./data/requirements"
@@ -13,6 +12,7 @@ min-height: calc(100vh - 80px);
 
 const FeaturesList = styled("ul")`
 padding: 20px 40px 40px 80px;
+max-width: 65%;
 `
 
 const PositionRequirements = styled("div")`
@@ -41,10 +41,11 @@ const ImageWrap = styled("div")`
 padding: 40px 0;
 font-family: "Saira Condensed", "Open Sans Condensed", sans-serif;
 text-align: right;
+max-width: 35%;
 `
 
 const MonovImg = styled("img")`
-max-width: 380px;
+width: 100%;
 `
 
 const MonovName = styled(Message)`
@@ -79,8 +80,8 @@ function Gameover() {
             <Message size="large">Position Requirements</Message>
             <PositionRequirements>
                 <FeaturesList>
-                    {requirements.map(item => (
-                        <FeatureItem>{item}</FeatureItem>
+                    {requirements.map((item, i) => (
+                        <FeatureItem key={i}>{item}</FeatureItem>
                     ))}
                 </FeaturesList>
 
