@@ -62,7 +62,7 @@ fieldset {
 
 body {
     margin: 0;
-    font-family: "Saira Condensed", "Open Sans", sans-serif;
+    font-family: "Saira Condensed", "Open Sans Condensed", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     font-size: 14px;
@@ -83,7 +83,7 @@ button {
     border: none;
     transition: all .2s ease-in-out;
     color: #fff;
-    font-family: "Saira Condensed", "Open Sans", sans-serif;
+    font-family: "Saira Condensed", "Open Sans Condensed", sans-serif;
     cursor: pointer;
 }
 
