@@ -12,6 +12,7 @@ color: #fff;
 const HeaderWrap = styled(InnerWrap)`
 display: flex;
 align-items: stretch;
+background-color: transparent;
 
 &:after {
     display: block;
