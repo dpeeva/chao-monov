@@ -74,6 +74,10 @@ body {
     box-sizing: border-box;
 }
 
+ul {
+    list-style: none;
+}
+
 
 button {
     border: none;
@@ -81,4 +85,21 @@ button {
     color: #fff;
     font-family: "Saira Condensed", "Open Sans", sans-serif;
     cursor: pointer;
+}
+
+img {
+    transition: all .2s ease-in-out;
+}
+
+a {
+    color: #53D337;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #F6B700;
+}
+
+a:hover img {
+    opacity: 1;
 }
