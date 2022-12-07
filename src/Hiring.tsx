@@ -30,12 +30,18 @@ bottom: 0;
 width: 100%;
 `
 
+const OksanaImg = styled("img")`
+position: absolute;
+left: 20%;
+bottom: 0;
+`
+
 const HRInfo = styled("div")`
 position: absolute;
 right: 0;
 bottom: 0;
-padding-left: 350px;
-padding-bottom: 40px;
+padding-left: 50%;
+padding-bottom: 80px;
 width: 100%;
 text-align: left;
 `
@@ -54,12 +60,6 @@ font-weight: 700;
 const Position = styled("div")`
 font-size: 28px;
 font-weight: 700;
-`
-
-const OksanaImg = styled("img")`
-position: absolute;
-left: 0;
-bottom: 0;
 `
 
 function Hiring() {

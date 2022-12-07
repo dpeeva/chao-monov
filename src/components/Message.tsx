@@ -13,7 +13,7 @@ const StyledMessage = styled("div") <{ size: MessageSize }>`
     `}
 `
 
-interface Props extends React.PropsWithChildren {
+interface Props extends React.PropsWithChildren<HTMLDivElement & any> {
     size: MessageSize
 }
 
