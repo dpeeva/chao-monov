@@ -5,7 +5,7 @@ export const messages = [
     },
     {
         name: "Чаов",
-        text: "Не скатава много!"
+        text: "Не скатавай много!"
     },
     {
         name: "Karavasilev",
