@@ -25,7 +25,7 @@ const StyledButton = styled("button") <{ color: ButtonColor }>`
     line-height: 70px;
 `
 
-interface Props extends React.PropsWithChildren<HTMLButtonElement & any> {
+interface Props extends React.PropsWithChildren<HTMLAnchorElement & any> {
     color: ButtonColor
 }
 
