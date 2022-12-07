@@ -43,8 +43,8 @@ import Robot_Yuriy from "./imgs/Robot_Yuriy.svg"
 import arrow from "./imgs/arrow.svg"
 import background from "./imgs/background.jpg"
 import chao from "./imgs/chao.svg"
-import chatobot from "./imgs/chatbot.svg"
 import logo from "./imgs/DK_Logo.svg"
+import mail from "./imgs/mail.svg"
 import Money from "./imgs/Money.svg"
 import Monov from "./imgs/Niki.jpeg"
 import Monov_working from "./imgs/Monov_working.svg"
@@ -101,8 +101,8 @@ export {
     arrow,
     background,
     chao,
-    chatobot,
     logo,
+    mail,
     Money,
     Monov,
     Monov_working,

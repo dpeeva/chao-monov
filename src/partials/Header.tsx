@@ -1,15 +1,15 @@
 import * as React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import { chatobot, logo } from "../assets"
+import { logo, mail } from "../assets"
 import { InnerWrap } from "./InnerWrap"
 
-const StyledHeader = styled("header")`
+const StyledHeader = styled( "header" )`
 background-color: #121212;
 color: #fff;
 `
 
-const HeaderWrap = styled(InnerWrap)`
+const HeaderWrap = styled( InnerWrap )`
 // display: flex;
 // align-items: stretch;
 background-color: transparent;
@@ -46,7 +46,7 @@ background-color: transparent;
 }
 `
 
-const Nav = styled("nav")`
+const Nav = styled( "nav" )`
 flex-grow: 1;
 font-size: 18px;
 text-align: end;
@@ -54,28 +54,28 @@ text-transform: uppercase;
 font-weight: bold;
 `
 
-const Logo = styled("img")`
+const Logo = styled( "img" )`
 float: left;
 `
 
-const TimeNow = styled("span")`
+const TimeNow = styled( "span" )`
 `
 
-const Balance = styled("span")`
+const Balance = styled( "span" )`
 justify-content: center;
 background-color: #61B510;
 `
 
-const Mail = styled("img")`
+const Mail = styled( "img" )`
 opacity: 0.7;
-width: 32px;
+width: 28px;
 `
 
 interface Props {
     balance: number
 }
 
-export const Header: React.FunctionComponent<Props> = ({ balance }) => {
+export const Header: React.FunctionComponent<Props> = ( { balance } ) => {
     return <>
         <StyledHeader>
             <HeaderWrap>
@@ -85,7 +85,7 @@ export const Header: React.FunctionComponent<Props> = ({ balance }) => {
                 <Nav>
                     <Link className="nav-link nav-item" to="/bots">UA Bots</Link>
                     <Link className="nav-link nav-item" to="/messages">
-                        <Mail src={chatobot} alt="Bot messages" />
+                        <Mail src={mail} alt="Bot messages" />
                     </Link>
                     <TimeNow className="nav-item">{Date.now()}</TimeNow>
                     <Link className="nav-link nav-item" to="/withdraw">Withdraw</Link>

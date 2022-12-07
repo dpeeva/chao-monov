@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "styled-components"
-import { bots } from "../assets"
+import { bots, mail } from "../assets"
 import { Message } from "../components"
 import { InnerWrap } from "../partials"
 
@@ -11,12 +11,32 @@ text-align: center;
 `
 
 const ChatList = styled("ul")`
+display: flex;
+flex-wrap: wrap;
+padding: 20px 60px;
 `
 
 const ChatItem = styled("li")`
+position: relative;
+margin: 10px;
+padding: 30px 0;
+width: 220px;
+height: 160px;
+text-align: center;
+box-shadow: -1px 0px 5px 0px rgba(96,181,16,1);
 `
 
 const BotImg = styled("img")`
+`
+
+const MailBtn = styled("a")`
+position: absolute;
+bottom: 100px;
+right: 25px;
+cursor: pointer;
+`
+
+const MailImg = styled("img")`
 `
 
 function Messages() {
@@ -27,6 +47,9 @@ function Messages() {
                 {Object.values(bots).map(bot => (
                     <ChatItem key={bot} title={bot}>
                         <BotImg src={bot} alt="Bot image" />
+                        <MailBtn onClick={() => { }}>
+                            <MailImg src={mail} alt="Mail" />
+                        </MailBtn>
                     </ChatItem>
                 ))}
             </ChatList>
