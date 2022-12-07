@@ -4,6 +4,7 @@ import { InnerWrap } from "./partials/InnerWrap"
 import purifier from "./assets/imgs/purifier.svg"
 import { Button } from "./components/Button"
 import { Message } from "./components/Message"
+import { useNavigate } from "react-router-dom"
 
 const GameWrap = styled(InnerWrap)`
 background-color: #000;
@@ -54,6 +55,7 @@ color: rgba(0,0,0, 0.7);
 `
 
 function Game() {
+    const navigate = useNavigate()
     return (
         <GameWrap>
             <MessageStart size="large">Place the Bots in the Purifier</MessageStart>
@@ -61,7 +63,10 @@ function Game() {
             <PurifierWrap>
                 <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
                 <Purifier src={purifier} alt="Monov working" />
-                <StyledButton href="/game" color="green">Game Over</StyledButton>
+                <StyledButton
+                    onClick={() => navigate("/hiring")}
+                    color="green"
+                >Game Over</StyledButton>
             </PurifierWrap>
         </GameWrap>
     )

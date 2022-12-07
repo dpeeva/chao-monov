@@ -27,7 +27,6 @@ function Home() {
             <Message size="large">Monov, let’s have some fun today!</Message>
             <Message size="medium">It’s your last day...</Message>
             <StyledButton
-                href="javascript:void(0)"
                 onClick={() => navigate("/game")}
                 color="orange"
             >Place Bots</StyledButton>

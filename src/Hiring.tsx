@@ -4,6 +4,7 @@ import { Message } from "./components/Message"
 import { InnerWrap } from "./partials/InnerWrap"
 import Oksana from "./assets/imgs/Oksana.png"
 import { Button } from "./components/Button"
+import { useNavigate } from "react-router-dom"
 
 const HiringWrap = styled(InnerWrap)`
 position: relative;
@@ -62,10 +63,14 @@ bottom: 0;
 `
 
 function Hiring() {
+    const navigate = useNavigate()
     return (
         <HiringWrap>
             <StyledMessage size="large">Are you the new Monov?</StyledMessage>
-            <StyledButton href="/gameover" color="orange">Now Hiring</StyledButton>
+            <StyledButton
+                onClick={() => navigate("/gameover")}
+                color="orange"
+            >Now Hiring</StyledButton>
             <HRWrap>
                 <OksanaImg src={Oksana} alt="Oksana hiring" />
                 <HRInfo>
