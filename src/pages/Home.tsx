@@ -1,10 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { Button } from "./components/Button"
-import { Message } from "./components/Message"
-import { InnerWrap } from "./partials/InnerWrap"
-import { Monov_working } from "./assets"
 import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { Monov_working } from "../assets"
+import { Button, Message } from "../components"
+import { InnerWrap } from "../partials"
 
 const HomeWrap = styled(InnerWrap)`
 padding-top: 60px;

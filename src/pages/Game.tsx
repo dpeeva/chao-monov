@@ -1,11 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { InnerWrap } from "./partials/InnerWrap"
-import { arrow, purifier } from "./assets"
-import { bots } from "./assets"
-import { Button } from "./components/Button"
-import { Message } from "./components/Message"
 import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { arrow, bots, purifier } from "../assets"
+import { Button, Message } from "../components"
+import { InnerWrap } from "../partials"
 
 const GameWrap = styled(InnerWrap)`
 position: relative;

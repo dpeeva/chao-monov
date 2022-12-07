@@ -1,8 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
-import logo from "../assets/DK_Logo.svg"
-import chatobot from "../assets/imgs/chatbot.svg"
+import { chatobot, logo } from "../assets"
 import { InnerWrap } from "./InnerWrap"
 
 const StyledHeader = styled("header")`

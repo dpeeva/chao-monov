@@ -5,15 +5,8 @@ import {
     Route,
 } from "react-router-dom"
 
-import { Header } from "./partials/Header"
-import { InnerWrap } from "./partials/InnerWrap"
-import Bots from "./Bots"
-import Game from "./Game"
-import Gameover from "./Gameover"
-import Hiring from "./Hiring"
-import Home from "./Home"
-import Messages from "./Messages"
-import Withdraw from "./Withdraw"
+import { Header, InnerWrap } from "./partials"
+import { Bots, Game, Gameover, Hiring, Home, Messages, Withdraw } from "./pages"
 import "./App.css"
 
 function App() {

@@ -1,10 +1,9 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
 import styled from "styled-components"
-import { background, colleagues } from "./assets"
-import { Button } from "./components/Button"
-import { Message } from "./components/Message"
-import { InnerWrap } from "./partials/InnerWrap"
+import { background, colleagues } from "../assets"
+import { Button, Message } from "../components"
+import { InnerWrap } from "../partials"
 
 const BotsWrap = styled(InnerWrap)`
 padding-top: 40px;

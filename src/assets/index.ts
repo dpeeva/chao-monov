@@ -43,6 +43,8 @@ import Robot_Yuriy from "./imgs/Robot_Yuriy.svg"
 import arrow from "./imgs/arrow.svg"
 import background from "./imgs/background.jpg"
 import chao from "./imgs/chao.svg"
+import chatobot from "./imgs/chatbot.svg"
+import logo from "./imgs/DK_Logo.svg"
 import Money from "./imgs/Money.svg"
 import Monov from "./imgs/Niki.jpeg"
 import Monov_working from "./imgs/Monov_working.svg"
@@ -83,22 +85,24 @@ export const bots = {
 }
 
 export const colleagues = {
-    Agop: Robot_Agop,
     Boyan: Robot_Boyan,
     Bozho: Robot_Bozho,
-    Dimitar: Robot_Dimitar,
-    Georgi: Robot_Georgi,
+    Agop: Robot_Agop,
+    Yuriy: Robot_Yuriy,
     Maxim: Robot_Maxim,
-    Simon: Robot_Simon,
     Svetlin: Robot_Svetlin,
     Vadym: Robot_Vadym,
-    Yuriy: Robot_Yuriy,
+    Dimitar: Robot_Dimitar,
+    Georgi: Robot_Georgi,
+    Simon: Robot_Simon,
 }
 
 export {
     arrow,
     background,
     chao,
+    chatobot,
+    logo,
     Money,
     Monov,
     Monov_working,

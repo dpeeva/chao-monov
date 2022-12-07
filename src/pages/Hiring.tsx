@@ -1,10 +1,9 @@
 import React from "react"
-import styled from "styled-components"
-import { Message } from "./components/Message"
-import { InnerWrap } from "./partials/InnerWrap"
-import Oksana from "./assets/imgs/Oksana.png"
-import { Button } from "./components/Button"
 import { useNavigate } from "react-router-dom"
+import styled from "styled-components"
+import { Oksana } from "../assets"
+import { Button, Message } from "../components"
+import { InnerWrap } from "../partials"
 
 const HiringWrap = styled(InnerWrap)`
 position: relative;

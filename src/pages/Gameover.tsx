@@ -1,9 +1,9 @@
 import React from "react"
 import styled from "styled-components"
-import { chao, Monov } from "./assets"
-import { Message } from "./components/Message"
-import { InnerWrap } from "./partials/InnerWrap"
-import { requirements } from "./data/requirements"
+import { chao, Monov } from "../assets"
+import { Message } from "../components"
+import { InnerWrap } from "../partials"
+import { requirements } from "../data/requirements"
 
 const GameoverWrap = styled(InnerWrap)`
 padding: 40px 80px;
