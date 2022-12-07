@@ -3,3 +3,4 @@
 .DS_Store
 .bin
 .vscode
+package-lock.json
