@@ -6,7 +6,7 @@ import {
 } from "react-router-dom"
 
 import { Header, InnerWrap } from "./partials"
-import { Bots, Game, Gameover, Hiring, Home, Messages, Withdraw } from "./pages"
+import { Bots, Game, Gameover, Hiring, Home, Messages, NotFound, Withdraw } from "./pages"
 
 function App() {
     return (
@@ -21,6 +21,7 @@ function App() {
                     <Route path='/messages' element={<Messages />}></Route>
                     <Route path='/hiring' element={<Hiring />}></Route>
                     <Route path='/gameover' element={<Gameover />}></Route>
+                    <Route path='*' element={<NotFound />}></Route>
                 </Routes>
             </InnerWrap>
         </Router>
