@@ -50,6 +50,7 @@ import Monov from "./imgs/Niki.jpeg"
 import Monov_working from "./imgs/Monov_working.svg"
 import Oksana from "./imgs/Oksana.png"
 import purifier from "./imgs/purifier.svg"
+import slack from "./imgs/slack.svg"
 
 export const bots = {
     1: bot_1,
@@ -108,4 +109,5 @@ export {
     Monov_working,
     Oksana,
     purifier,
+    slack,
 }

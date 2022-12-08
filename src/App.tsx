@@ -7,7 +7,6 @@ import {
 
 import { Header, InnerWrap } from "./partials"
 import { Bots, Game, Gameover, Hiring, Home, Messages, Withdraw } from "./pages"
-import "./App.css"
 
 function App() {
     return (

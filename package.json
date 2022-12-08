@@ -46,6 +46,8 @@
   },
   "devDependencies": {
     "@types/styled-components": "^5.1.26",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-router-dom": "^6.4.4",
     "react-tooltip": "^5.0.0"
   }

@@ -2,7 +2,7 @@ import React from "react"
 import styled from "styled-components"
 import { Tooltip } from "react-tooltip"
 import "react-tooltip/dist/react-tooltip.css"
-import { bots, mail } from "../assets"
+import { bots, slack } from "../assets"
 import { Message } from "../components"
 import { InnerWrap } from "../partials"
 import { messages } from "../data/messages"
@@ -36,11 +36,12 @@ const MailBtn = styled("a")`
 position: absolute;
 z-index: 1;
 bottom: 100px;
-right: 20px;
+right: 30px;
 cursor: pointer;
 `
 
 const MailImg = styled("img")`
+width: 28px;
 `
 
 const TooltipContent = styled("div")`
@@ -73,7 +74,7 @@ function Messages() {
                                 <TooltipContent>{m.text}</TooltipContent>
                                 <TooltipAuthor>— {m.name}</TooltipAuthor>
                             </Tooltip>
-                            <MailImg src={mail} alt="Mail" />
+                            <MailImg src={slack} alt="Mail" />
                         </MailBtn>
                     </ChatItem>
                 })}
