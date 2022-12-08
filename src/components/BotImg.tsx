@@ -6,7 +6,7 @@ const StyledImg = styled("img")`
 `
 
 interface Props extends React.PropsWithRef<HTMLImageElement & any> {
-    url: string;
+    url: string
 }
 
 export const BotImg: React.FunctionComponent<Props> = ({ id, url }) => {
