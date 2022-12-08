@@ -12,8 +12,13 @@ interface Props extends React.PropsWithChildren<HTMLSpanElement & any> {
 export const Clock: React.FunctionComponent<Props> = (props) => {
     const [date, setDate] = React.useState(new Date())
 
+    let currDate, endDate, diff
+
     function refreshClock() {
-        setDate(new Date())
+        currDate = Date.now()
+        endDate = Date.parse("December 08, 2022 18:00:00")
+        diff = Math.abs(endDate - currDate)
+        setDate(new Date(diff))
     }
 
     React.useEffect(() => {

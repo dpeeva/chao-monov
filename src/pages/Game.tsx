@@ -9,6 +9,7 @@ import { InnerWrap } from "../partials"
 
 const GameWrap = styled(InnerWrap)`
 position: relative;
+padding-top: 20px;
 background-color: #000;
 min-height: calc(100vh - 80px);
 text-align: center;
@@ -148,7 +149,7 @@ function Game() {
     return (
         <DndProvider backend={HTML5Backend}>
             <GameWrap>
-                <MessageStart size="large">Place the Bots in the Purifier</MessageStart>
+                <MessageStart size="large">Place the Bots in the Purifier, to get some cash</MessageStart>
                 <MessageEnd size="large">All Bots purified</MessageEnd>
                 <BotsWrap>
                     <BotsList>

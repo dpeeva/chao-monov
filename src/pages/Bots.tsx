@@ -28,7 +28,7 @@ align-self: baseline;
 `
 
 const BotImage = styled("img")`
-max-width: 90px;
+max-width: 80px;
 `
 
 const BotName = styled(Message)`
@@ -38,8 +38,9 @@ font-weight: 700;
 
 const BottomSection = styled("div")`
 position: relative;
-min-height: 350px;
+min-height: 340px;
 overflow: hidden;
+background-color: #000;
 color: #fff;
 text-align: center;
 `
@@ -47,7 +48,7 @@ text-align: center;
 const BackgroundMessage = styled("div")`
 position: relative;
 z-index: 1;
-padding: 80px 0;
+padding: 60px 0;
 `
 
 const StyledMessage = styled(Message)`
@@ -65,16 +66,26 @@ const StyledButton = styled(Button)`
 margin-top: 40px;
 `
 
+type Bot = {
+    name: string
+    url: string
+}
+
 function Bots() {
     const navigate = useNavigate()
+    const bots: Bot[] = Object.entries(colleagues).map(entry => ({
+        name: entry[0],
+        url: entry[1]
+    }))
+
     return (
         <BotsWrap>
             <Message size="large">Say goodbye to your colleagues</Message>
             <BotsList>
-                {Object.entries(colleagues).map(entry => (
-                    <BotItem key={entry[0]}>
-                        <BotImage src={entry[1]} alt={`${entry[1]}`} />
-                        <BotName size="medium">{entry[0]}</BotName>
+                {bots.map((entry: Bot) => (
+                    <BotItem key={entry.name}>
+                        <BotImage src={entry.url} alt={entry.name} />
+                        <BotName size="small">{entry.name}</BotName>
                     </BotItem>
                 ))}
             </BotsList>

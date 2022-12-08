@@ -1,7 +1,7 @@
 import * as React from "react"
 import styled from "styled-components"
 
-type MessageSize = "large" | "medium"
+type MessageSize = "large" | "medium" | "small"
 
 const StyledMessage = styled("div") <{ size: MessageSize }>`
     ${props => props.size === "large" && `
@@ -10,6 +10,9 @@ const StyledMessage = styled("div") <{ size: MessageSize }>`
     `}
     ${props => props.size === "medium" && `
         font-size: 28px;
+    `}
+    ${props => props.size === "small" && `
+        font-size: 24px;
     `}
 `
 
