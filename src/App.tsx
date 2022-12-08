@@ -11,7 +11,7 @@ import { Bots, Game, Gameover, Hiring, Home, Messages, NotFound, Withdraw } from
 function App() {
     return (
         <Router>
-            <Header balance={0} />
+            <Header />
             <InnerWrap>
                 <Routes>
                     <Route path='/' element={<Home />}></Route>

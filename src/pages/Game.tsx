@@ -1,11 +1,12 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import { DndProvider, useDrop } from "react-dnd"
-import { HTML5Backend } from "react-dnd-html5-backend"
+import { useDrop } from "react-dnd"
 import styled, { keyframes } from "styled-components"
 import { arrow, bots, purifier } from "../assets"
 import { BotImg, Button, Message } from "../components"
 import { InnerWrap } from "../partials"
+import { BotsContext } from "../context/bots"
+import { BotObject } from "../types"
 
 const GameWrap = styled(InnerWrap)`
 position: relative;
@@ -54,13 +55,13 @@ right: 40px;
 `
 
 const StyledButton = styled(Button)`
+display: none;
 position: absolute;
 top: 250px;
 right: 224px;
 width: 300px;
 height: 80px;
 color: rgba(0,0,0, 0.7);
-opacity: 0;
 &:hover {
     color: #fff;
     background-color: #F7760D;
@@ -85,6 +86,8 @@ to { transform: rotate(360deg); }
 `
 
 const BotsPlacedList = styled("ul")`
+display: flex;
+justify-content: center;
 position: absolute;
 top: 165px;
 right: 265px;
@@ -133,51 +136,62 @@ opacity: 1;
 animation: ${moveBackForth} 2s ease-out infinite;
 `
 
-interface BotObject {
-    id: string
-    url: string
-}
-
 function Game() {
     const navigate = useNavigate()
     const source: BotObject[] = Object.entries(bots).map(entry => ({
         id: entry[0],
         url: entry[1]
     }))
-    const [spot, setContent] = React.useState<Array<BotObject>>([])
+    const [spotList, setContent] = React.useState<Array<BotObject>>([])
+
+    const [{ isOver }, dropRef] = useDrop(() => ({
+        accept: "image",
+        drop: (item: BotObject) => addToSpotList(item.id), // function to execute on drop
+        collect: (monitor) => ({
+            isOver: !!monitor.isOver()
+        })
+    }))
+
+    const addToSpotList = (id: string) => {
+        console.log(id)
+        const list = source.filter((bot: BotObject) => id == bot.id)
+        setContent(spotList => [list[0]])
+    }
 
     return (
-        <DndProvider backend={HTML5Backend}>
-            <GameWrap>
-                <MessageStart size="large">Place the Bots in the Purifier, to get some cash</MessageStart>
-                <MessageEnd size="large">All Bots purified</MessageEnd>
-                <BotsWrap>
-                    <BotsList>
-                        {source.map(bot => (
-                            <BotItem key={bot.id}>
-                                <BotImg id={bot.id} url={bot.url} />
-                            </BotItem>)
-                        )}
-                    </BotsList>
-                </BotsWrap>
-                <ArrowImg src={arrow} alt="Arrow" />
-                <PurifierWrap>
-                    <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
-                    <Purifier src={purifier} alt="Purifier" />
-                    <BotsPlacedList>
-                        {spot.map(bot => (
-                            <BotItem key={bot.id}>
-                                <BotImg id={bot.id} url={bot.url} />
-                            </BotItem>)
-                        )}
-                    </BotsPlacedList>
-                    <StyledButton
-                        onClick={() => navigate("/hiring")}
-                        color="green"
-                    >Game Over</StyledButton>
-                </PurifierWrap>
-            </GameWrap>
-        </DndProvider>
+        <BotsContext.Consumer>
+            {({ list }) => (
+                <GameWrap>
+                    <MessageStart size="large">Place the Bots in the Purifier, to get some cash</MessageStart>
+                    <MessageEnd size="large">All Bots purified</MessageEnd>
+                    <BotsWrap>
+                        <BotsList>
+                            {list.map(bot => (
+                                <BotItem key={bot.id}>
+                                    <BotImg id={bot.id} url={bot.url} />
+                                </BotItem>)
+                            )}
+                        </BotsList>
+                    </BotsWrap>
+                    <ArrowImg src={arrow} alt="Arrow" />
+                    <PurifierWrap>
+                        <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
+                        <Purifier src={purifier} alt="Purifier" />
+                        <BotsPlacedList ref={dropRef}>
+                            {spotList.map((bot: BotObject) => (
+                                <BotItem key={bot.id}>
+                                    <BotImg id={bot.id} url={bot.url} />
+                                </BotItem>)
+                            )}
+                        </BotsPlacedList>
+                        <StyledButton
+                            onClick={() => navigate("/hiring")}
+                            color="green"
+                        >Game Over</StyledButton>
+                    </PurifierWrap>
+                </GameWrap >
+            )}
+        </BotsContext.Consumer>
     )
 }
 
