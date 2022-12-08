@@ -1,6 +1,6 @@
 import React from "react"
 import { useNavigate } from "react-router-dom"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { arrow, bots, purifier } from "../assets"
 import { Button, Message } from "../components"
 import { InnerWrap } from "../partials"
@@ -81,10 +81,19 @@ background-color: #fff;
 const BotImg = styled("img")`
 `
 
+const moveBackForth = keyframes`
+0% { transform: translateX(-40px); }
+50% { transform: translateX(100px); }
+100% { transform: translateX(-40px); }
+`
+
 const ArrowImg = styled("img")`
 position: absolute;
 top: 360px;
 left: 300px;
+transform: translateX(0);
+opacity: 1;
+animation: ${moveBackForth} 2s infinite;
 `
 
 function Game() {

@@ -26,7 +26,7 @@ padding: 30px 0;
 width: 220px;
 height: 160px;
 text-align: center;
-box-shadow: -1px 0px 5px 0px rgba(96,181,16,1);
+box-shadow: -1px 0px 5px 0px rgba(186,186,186,0.75);
 `
 
 const BotImg = styled("img")`
@@ -34,6 +34,7 @@ const BotImg = styled("img")`
 
 const MailBtn = styled("a")`
 position: absolute;
+z-index: 1;
 bottom: 100px;
 right: 20px;
 cursor: pointer;
@@ -61,7 +62,7 @@ function Messages() {
             <ChatList>
                 {messages.map((m, i) => {
                     const bot = botsArray[i + 1]
-                    return <ChatItem key={bot} title={bot}>
+                    return <ChatItem key={bot}>
                         <BotImg src={bot} alt="Bot image" />
                         <MailBtn
                             id={`bot-${i}`}
