@@ -44,14 +44,20 @@ const MailImg = styled("img")`
 width: 28px;
 `
 
+const StyledTooltip = styled(Tooltip)`
+opacity: 1;
+`
+
 const TooltipContent = styled("div")`
 max-width: 200px;
-font-size: 18px;
+font-family: Verdana, sans-serif;
+font-size: 16px;
 text-align: left;
 `
 
 const TooltipAuthor = styled("div")`
 font-size: 16px;
+font-weight: 600;
 text-align: right;
 `
 
@@ -70,10 +76,10 @@ function Messages() {
                             onClick={() => { }}
                             data-tooltip-content={m.text}
                         >
-                            <Tooltip anchorId={`bot-${i}`}>
+                            <StyledTooltip anchorId={`bot-${i}`}>
                                 <TooltipContent>{m.text}</TooltipContent>
                                 <TooltipAuthor>— {m.name}</TooltipAuthor>
-                            </Tooltip>
+                            </StyledTooltip>
                             <MailImg src={slack} alt="Mail" />
                         </MailBtn>
                     </ChatItem>
