@@ -29,7 +29,7 @@ export const BotItem: React.FunctionComponent<Props> = ({ id, url }) => {
     const context = React.useContext(BotsContext)
     const contextMoney = React.useContext(MoneyContext)
 
-    const [{ isDragging }, dragRef] = useDrag(() => ({
+    const [{ isDragging, isOver }, dragRef] = useDrag(() => ({
         type: "image",
         item: { id: id },
         end: (item, monitor) => {
@@ -37,15 +37,20 @@ export const BotItem: React.FunctionComponent<Props> = ({ id, url }) => {
             if (item && dropResult) {
                 const newList = context.list.filter(bot => item.id !== bot.id)
                 context.setList(newList)
-                contextMoney.setSum(100)
+                contextMoney.setSum(contextMoney.sum + 76)
             }
         },
         collect: (monitor) => ({
-            isDragging: !!monitor.isDragging()
+            isDragging: !!monitor.isDragging(),
+            isOver: !!monitor.didDrop(),
         })
     }))
 
+    const isDraggingClass = isDragging ? "isDragging" : "not-dragging"
+    const isOverClass = isOver ? "isDropped" : "isOver"
+    const classNames = [isDraggingClass, isOverClass]
+
     return <StyledItem ref={dragRef}>
-        <BotImg src={url} alt="Bot image" className={isDragging ? "isDragging" : "not-dragging"} />
+        <BotImg src={url} alt="Bot image" className={classNames.join(" ")} />
     </StyledItem>
 }

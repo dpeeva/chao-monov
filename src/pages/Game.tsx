@@ -26,7 +26,6 @@ color: #fff;
 `
 
 const SecondaryMessage = styled(Message)`
-display: none;
 position: absolute;
 top: 50%;
 transform: translateY(-40px);
@@ -55,9 +54,8 @@ right: 40px;
 `
 
 const StyledButton = styled(Button)`
-display: none;
 position: absolute;
-top: 250px;
+top: 238px;
 right: 224px;
 width: 300px;
 height: 80px;
@@ -172,17 +170,19 @@ function Game() {
             </BotsWrap>
             <ArrowImg src={arrow} alt="Arrow" />
             <PurifierWrap>
-                <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
+                {!context.list.length &&
+                    <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
+                }
                 <Purifier src={purifier} alt="Purifier" />
                 <BotsPlacedList ref={dropRef}>
                     {droppedList.map((bot: BotObject) => (
                         <BotItem key={bot.id} id={bot.id} url={bot.url}></BotItem>
                     ))}
                 </BotsPlacedList>
-                <StyledButton
-                    onClick={() => navigate("/hiring")}
+                {!context.list.length && <StyledButton
+                    onClick={() => navigate("/withdraw")}
                     color="green"
-                >Game Over</StyledButton>
+                >Game Over</StyledButton>}
             </PurifierWrap>
         </GameWrap >
     )

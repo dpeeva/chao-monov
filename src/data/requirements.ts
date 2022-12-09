@@ -7,6 +7,7 @@ export const requirements = [
     "I would think that Niki’s best quality is even if it does not show the enormous patience that he had shown while dealing with people whose thinking process is following (sometimes not very closely behind) after their speech, and by that I am mostly referring to myself.",
     "С око за детайла и топ DJ.",
     "Party animal",
+    "When his manager is worried for him for not showing up for work, and he is just hungover.",
     "На партитата си винаги от последните оцелели и въпреки всичко свежарка :D",
     "The guy who always got emotional on my PRs.",
     "Webpack master",

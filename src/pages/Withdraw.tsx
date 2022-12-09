@@ -39,40 +39,44 @@ margin: 0 auto;
 function Withdraw() {
     const navigate = useNavigate()
     const context = React.useContext(MoneyContext)
+    const [moneyTaken, setMoneyTaken] = React.useState(false)
 
-    {/* on sum available */ }
-    {/* on sum withraw */ }
-    {/* on no sum  */ }
+    let sum = context.sum
+
+    const handleWithdraw = () => {
+        setMoneyTaken(true)
+    }
 
     return <WithdrawWrap>
-        {context.sum !== 0
+        {sum !== 0
             ? <>
-                <StyledMessage id="money-message" size="large">Your money:</StyledMessage>
-                {
-                    // on context change to 0
-                    // <StyledMessage id="success-message" size="large">Success!</StyledMessage>
-                    // also hide money-message
+                {!moneyTaken
+                    ?
+                    <StyledMessage id="money-message" size="large">Your money:</StyledMessage>
+                    : <StyledMessage id="success-message" size="large">Success!</StyledMessage>
                 }
-                <Pocket>{context.sum}</Pocket>
-                <Label>Available</Label>
-                <StyledButton
-                    id="withdrawBtn"
-                    onClick={() => context.setSum(0)}
-                    color="orange"
-                >Withdraw</StyledButton>
-                {
-                    // on context change to 0
-                    // <MoneyImg id="money-sack-img" src={Money} alt="Money sack" />
-                    // also hide withdrawBtn & show hrBtn
+                {!moneyTaken && <>
+                    <Pocket>{sum}</Pocket>
+                    <Label>Available</Label>
+                </>}
+                {!moneyTaken
+                    ? <StyledButton
+                        id="withdrawBtn"
+                        onClick={() => handleWithdraw()}
+                        color="orange"
+                    >Withdraw</StyledButton>
+                    : <>
+                        <MoneyImg id="money-sack-img" src={Money} alt="Money sack" />
+                        <StyledButton
+                            id="hrBtn"
+                            onClick={() => navigate("/hiring")}
+                            color="orange"
+                        >Go to HR</StyledButton>
+                    </>
                 }
-                <StyledButton
-                    id="hrBtn"
-                    onClick={() => navigate("/hiring")}
-                    color="orange"
-                >Go to HR</StyledButton>
             </>
             : <>
-                <Pocket>{context.sum}</Pocket>
+                <Pocket>{sum}</Pocket>
                 <Message id="no-money-message" size="medium">No money yet,  place some Bots first.</Message>
                 <StyledButton
                     id="placeBotsBtn"

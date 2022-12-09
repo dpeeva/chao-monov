@@ -50,5 +50,9 @@ export const messages = [
     {
         name: "Деница",
         text: "Винаги готов за парти!"
+    },
+    {
+        name: "Kostov",
+        text: "Opens the door with blood on his foot, because he “accidently” hit the door. Кое не е така?"
     }
 ]
