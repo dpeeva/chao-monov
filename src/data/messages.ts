@@ -42,5 +42,13 @@ export const messages = [
     {
         name: "Кармен",
         text: "Да научиш още хора как се танцува!"
+    },
+    {
+        name: "Ивето",
+        text: "Dance battle King!"
+    },
+    {
+        name: "Деница",
+        text: "Винаги готов за парти!"
     }
 ]
