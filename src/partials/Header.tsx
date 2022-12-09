@@ -2,7 +2,7 @@ import * as React from "react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { logo, slack } from "../assets"
-import { MoneyContext } from "../context/money"
+import { MoneyContext } from "../context/MoneyContext"
 import { InnerWrap } from "./InnerWrap"
 import { Clock } from "../components"
 
@@ -69,30 +69,26 @@ width: 22px;
 `
 
 export const Header: React.FunctionComponent = () => {
-    return <>
-        <MoneyContext.Consumer>
-            {({ sum }) => (
-                <StyledHeader>
-                    <HeaderWrap>
-                        <Link className="logo-link" to="/">
-                            <Logo src={logo} alt="DK logo" />
-                        </Link>
-                        <Nav>
-                            <Link className="nav-item" to="/bots">UA Bots</Link>
-                            <Link className="nav-item" to="/messages">
-                                <Mail src={slack} alt="Bot messages" />
-                            </Link>
-                            <TimeNow className="nav-item">
-                                <Clock />
-                            </TimeNow>
-                            <Link className="nav-item" to="/withdraw">Withdraw</Link>
-                            <Balance className="nav-item balance-item">
-                                UAH {sum}
-                            </Balance>
-                        </Nav>
-                    </HeaderWrap>
-                </StyledHeader>
-            )}
-        </MoneyContext.Consumer>
-    </>
+    const context = React.useContext(MoneyContext)
+
+    return <StyledHeader>
+        <HeaderWrap>
+            <Link className="logo-link" to="/">
+                <Logo src={logo} alt="DK logo" />
+            </Link>
+            <Nav>
+                <Link className="nav-item" to="/bots">UA Bots</Link>
+                <Link className="nav-item" to="/messages">
+                    <Mail src={slack} alt="Bot messages" />
+                </Link>
+                <TimeNow className="nav-item">
+                    <Clock />
+                </TimeNow>
+                <Link className="nav-item" to="/withdraw">Withdraw</Link>
+                <Balance className="nav-item balance-item">
+                    UAH {context.sum}
+                </Balance>
+            </Nav>
+        </HeaderWrap>
+    </StyledHeader>
 }
