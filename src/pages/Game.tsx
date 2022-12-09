@@ -84,6 +84,10 @@ const rotateSpot = keyframes`
 from { transform: rotate(0); }
 to { transform: rotate(360deg); }
 `
+const fadeAway = keyframes`
+from { opacity: 1; }
+to { opacity: 0; }
+`
 
 const BotsPlacedList = styled("ul")`
 display: flex;
@@ -94,6 +98,10 @@ right: 265px;
 border-radius: 50%;
 width: 220px;
 height: 220px;
+
+&:hover:after {
+    opacity: 1;
+}
 
 &:after {
     display: block;
@@ -106,7 +114,13 @@ height: 220px;
     width: 204px;
     height: 204px;
     opacity: 0.7;
+    transition: all .4s ease-in-out;
     animation: ${rotateSpot} 22s linear infinite;
+}
+
+li {
+    opacity: 0;
+    animation: ${fadeAway} 1s linear;
 }
 `
 
@@ -140,7 +154,6 @@ function Game() {
     }))
 
     const addToSpotList = (id: string) => {
-        // console.log(id)
         const list = context.list.filter((bot: BotObject) => id == bot.id)
         setContent(spotList => [list[0]])
     }
