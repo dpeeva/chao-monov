@@ -28,7 +28,7 @@ color: #fff;
 const SecondaryMessage = styled(Message)`
 position: absolute;
 top: 50%;
-transform: translateY(-40px);
+transform: translateY(-50px);
 left: 50px;
 color: rgba(255,255,255, 0.8);
 `
@@ -69,7 +69,7 @@ color: rgba(0,0,0, 0.7);
 const BotsWrap = styled("div")`
 position: absolute;
 z-index: 1;
-top: 90px;
+top: 104px;
 left: 60px;
 max-height: 580px;
 overflow: hidden;
@@ -130,7 +130,7 @@ const moveBackForth = keyframes`
 
 const ArrowImg = styled("img")`
 position: absolute;
-top: 360px;
+top: 368px;
 left: 300px;
 transform: translateX(0);
 opacity: 1;
