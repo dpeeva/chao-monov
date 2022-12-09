@@ -12,10 +12,10 @@ import { BotsProvider, MoneyProvider } from "./providers"
 function App() {
 
     return (
-        <BotsProvider>
-            <MoneyProvider>
-                <Router>
-                    <Header />
+        <MoneyProvider>
+            <Router>
+                <Header />
+                <BotsProvider>
                     <InnerWrap>
                         <Routes>
                             <Route path='/' element={<Home />}></Route>
@@ -28,9 +28,9 @@ function App() {
                             <Route path='*' element={<NotFound />}></Route>
                         </Routes>
                     </InnerWrap>
-                </Router>
-            </MoneyProvider>
-        </BotsProvider>
+                </BotsProvider>
+            </Router>
+        </MoneyProvider>
     )
 }
 

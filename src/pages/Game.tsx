@@ -140,7 +140,7 @@ function Game() {
     }))
 
     const addToSpotList = (id: string) => {
-        console.log(id)
+        // console.log(id)
         const list = context.list.filter((bot: BotObject) => id == bot.id)
         setContent(spotList => [list[0]])
     }
