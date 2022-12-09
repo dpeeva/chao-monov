@@ -1,7 +1,7 @@
 import React from "react"
 import { useDrag } from "react-dnd"
 import styled from "styled-components"
-import { BotsContext } from "../context/BotsContext"
+import { BotsContext, MoneyContext } from "../context"
 
 const StyledItem = styled("li")`
 display: flex;
@@ -27,25 +27,30 @@ interface Props extends React.PropsWithRef<HTMLImageElement & any> {
 
 export const BotItem: React.FunctionComponent<Props> = ({ id, url }) => {
     const context = React.useContext(BotsContext)
-    const [{ isDragging }, dragRef] = useDrag(() => ({
+    const contextMoney = React.useContext(MoneyContext)
+
+    const [{ isDragging, isOver }, dragRef] = useDrag(() => ({
         type: "image",
         item: { id: id },
         end: (item, monitor) => {
             const dropResult = monitor.getDropResult<DropResult>()
-            console.log(dropResult)
             if (item && dropResult) {
-                console.log(`You dropped ${item.id}!`)
-                // update context => removeBot(item.id)
                 const newList = context.list.filter(bot => item.id !== bot.id)
                 context.setList(newList)
+                contextMoney.setSum(contextMoney.sum + 76)
             }
         },
         collect: (monitor) => ({
-            isDragging: !!monitor.isDragging()
+            isDragging: !!monitor.isDragging(),
+            isOver: !!monitor.didDrop(),
         })
     }))
 
-    return <StyledItem>
-        <BotImg src={url} alt="Bot image" ref={dragRef} className={isDragging ? "isDragging" : "not-dragging"} />
+    const isDraggingClass = isDragging ? "isDragging" : "not-dragging"
+    const isOverClass = isOver ? "isDropped" : "isOver"
+    const classNames = [isDraggingClass, isOverClass]
+
+    return <StyledItem ref={dragRef}>
+        <BotImg src={url} alt="Bot image" className={classNames.join(" ")} />
     </StyledItem>
 }

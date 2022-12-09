@@ -39,40 +39,52 @@ margin: 0 auto;
 function Withdraw() {
     const navigate = useNavigate()
     const context = React.useContext(MoneyContext)
+    const [moneyTaken, setMoneyTaken] = React.useState(false)
 
-    return (
-        <WithdrawWrap>
-            {context.sum !== 0
-                ? <StyledMessage id="money-message" size="large">Your money:</StyledMessage>
-                : <></>
-            }
-            {
-                // on context change to 0
-                false && <StyledMessage id="success-message" size="large">Success!</StyledMessage>
-            }
-            <Pocket>{context.sum}</Pocket>
-            <Label>Available</Label>
-            {context.sum === 0 &&
+    let sum = context.sum
+
+    const handleWithdraw = () => {
+        setMoneyTaken(true)
+    }
+
+    return <WithdrawWrap>
+        {sum !== 0
+            ? <>
+                {!moneyTaken
+                    ? <StyledMessage id="money-message" size="large">Your money:</StyledMessage>
+                    : <StyledMessage id="success-message" size="large">Success!</StyledMessage>
+                }
+                {!moneyTaken && <>
+                    <Pocket>{sum}</Pocket>
+                    <Label>Available</Label>
+                </>}
+                {!moneyTaken
+                    ? <StyledButton
+                        id="withdrawBtn"
+                        onClick={() => handleWithdraw()}
+                        color="orange"
+                    >Withdraw</StyledButton>
+                    : <>
+                        <MoneyImg id="money-sack-img" src={Money} alt="Money sack" />
+                        <StyledButton
+                            id="hrBtn"
+                            onClick={() => navigate("/hiring")}
+                            color="orange"
+                        >Go to HR</StyledButton>
+                    </>
+                }
+            </>
+            : <>
+                <Pocket>{sum}</Pocket>
                 <Message id="no-money-message" size="medium">No money yet,  place some Bots first.</Message>
-            }
-            {context.sum !== 0
-                ? <StyledButton
-                    id="withdrawBtn"
-                    onClick={() => context.setSum(0)}
-                    color="orange"
-                >Withdraw</StyledButton>
-                : <StyledButton
+                <StyledButton
                     id="placeBotsBtn"
                     onClick={() => navigate("/game")}
                     color="orange"
                 >Place Bots</StyledButton>
-            }
-            {
-                // on context change to 0
-                false && <MoneyImg id="money-sack-img" src={Money} alt="Money sack" />
-            }
-        </WithdrawWrap>
-    )
+            </>
+        }
+    </WithdrawWrap>
 }
 
 export default Withdraw

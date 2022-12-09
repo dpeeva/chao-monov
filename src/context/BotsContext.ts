@@ -7,7 +7,7 @@ export const botsList: BotObject[] = Object.entries(bots).map(
         id: entry[0],
         url: entry[1]
     })
-)
+).slice(0, 5)
 
 export const BotsContext = React.createContext({
     list: botsList,

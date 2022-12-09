@@ -1,14 +1,9 @@
 import * as React from "react"
-import { BotsContext, botsList } from "../context"
+import { BotsContext } from "../context"
+import { BotsState } from "../data/BotsState"
 
-export const BotsProvider: React.FunctionComponent<React.PropsWithChildren> = ({ children }) => {
-    const [list, setList] = React.useState([])
-    const initState = {
-        list: botsList,
-        setList: () => { },
-    }
-
-    return <BotsContext.Provider value={initState}>
+export const BotsProvider: React.FunctionComponent<React.PropsWithChildren> = ({ children }) => (
+    <BotsContext.Provider value={new BotsState()}>
         {children}
     </BotsContext.Provider>
-}
+)

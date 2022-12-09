@@ -86,7 +86,7 @@ export const Header: React.FunctionComponent = () => {
                 </TimeNow>
                 <Link className="nav-item" to="/withdraw">Withdraw</Link>
                 <Balance className="nav-item balance-item">
-                    UAH {context.sum}
+                    {`₴ ${context.sum}`}
                 </Balance>
             </Nav>
         </HeaderWrap>

@@ -26,7 +26,6 @@ color: #fff;
 `
 
 const SecondaryMessage = styled(Message)`
-display: none;
 position: absolute;
 top: 50%;
 transform: translateY(-40px);
@@ -55,9 +54,8 @@ right: 40px;
 `
 
 const StyledButton = styled(Button)`
-display: none;
 position: absolute;
-top: 250px;
+top: 238px;
 right: 224px;
 width: 300px;
 height: 80px;
@@ -84,6 +82,10 @@ const rotateSpot = keyframes`
 from { transform: rotate(0); }
 to { transform: rotate(360deg); }
 `
+const fadeAway = keyframes`
+from { opacity: 1; }
+to { opacity: 0; }
+`
 
 const BotsPlacedList = styled("ul")`
 display: flex;
@@ -94,6 +96,10 @@ right: 265px;
 border-radius: 50%;
 width: 220px;
 height: 220px;
+
+&:hover:after {
+    opacity: 1;
+}
 
 &:after {
     display: block;
@@ -106,7 +112,13 @@ height: 220px;
     width: 204px;
     height: 204px;
     opacity: 0.7;
+    transition: all .4s ease-in-out;
     animation: ${rotateSpot} 22s linear infinite;
+}
+
+li {
+    opacity: 0;
+    animation: ${fadeAway} 1s linear;
 }
 `
 
@@ -140,7 +152,6 @@ function Game() {
     }))
 
     const addToSpotList = (id: string) => {
-        console.log(id)
         const list = context.list.filter((bot: BotObject) => id == bot.id)
         setContent(spotList => [list[0]])
     }
@@ -159,17 +170,19 @@ function Game() {
             </BotsWrap>
             <ArrowImg src={arrow} alt="Arrow" />
             <PurifierWrap>
-                <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
+                {!context.list.length &&
+                    <SecondaryMessage size="medium">Life can now continue...</SecondaryMessage>
+                }
                 <Purifier src={purifier} alt="Purifier" />
                 <BotsPlacedList ref={dropRef}>
                     {droppedList.map((bot: BotObject) => (
                         <BotItem key={bot.id} id={bot.id} url={bot.url}></BotItem>
                     ))}
                 </BotsPlacedList>
-                <StyledButton
-                    onClick={() => navigate("/hiring")}
+                {!context.list.length && <StyledButton
+                    onClick={() => navigate("/withdraw")}
                     color="green"
-                >Game Over</StyledButton>
+                >Game Over</StyledButton>}
             </PurifierWrap>
         </GameWrap >
     )
