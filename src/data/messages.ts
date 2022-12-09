@@ -39,4 +39,8 @@ export const messages = [
         name: "Vasil",
         text: "Well, since “Koga she piem ??”, is already taken i would double down on the stupid questions topic and say that “Ники ‘ше имаш ли време да погледнеш едно пул рекуестче?” (Под време тука се разбира 1 - Х часа, а под пул рекуестче - между 1000 реда и 1 уиджет, к’о да кажа се се опитваме да е както трябва, но става както винаги.) and the underlying existential dread caused, by it do actually explain the alcohol consumption."
     },
+    {
+        name: "Кармен",
+        text: "Да научиш още хора как се танцува!"
+    }
 ]
