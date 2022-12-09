@@ -1,10 +1,13 @@
+import { action, observable } from "mobx"
+
 export class MoneyState {
-    sum: number
+    @observable sum: number
 
     constructor() {
-        this.sum = 100
+        this.sum = 0
     }
 
+    @action
     setSum(sum: number) {
         this.sum = sum
     }

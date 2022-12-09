@@ -1,8 +1,9 @@
 import * as React from "react"
+import { observer } from "mobx-react"
 import styled from "styled-components"
 import { Link } from "react-router-dom"
 import { logo, slack } from "../assets"
-import { MoneyContext } from "../context/MoneyContext"
+// import { MoneyContext } from "../context/MoneyContext"
 import { InnerWrap } from "./InnerWrap"
 import { Clock } from "../components"
 
@@ -47,6 +48,21 @@ font-size: 18px;
 text-align: end;
 text-transform: uppercase;
 font-weight: bold;
+
+.balance-item {
+    justify-content: center;
+    background-color: #61B510;
+    color: #fff;
+    transition: all .4s ease-in-out;
+
+    &:hover {
+        background-color: #4A932D;
+    }
+
+    &.disabled {
+        pointer-events: none;
+    }
+}
 `
 
 const Logo = styled("img")`
@@ -68,8 +84,8 @@ width: 22px;
 }
 `
 
-export const Header: React.FunctionComponent = () => {
-    const context = React.useContext(MoneyContext)
+export const Header: React.FunctionComponent = observer(() => {
+    // const context = React.useContext(MoneyContext)
 
     return <StyledHeader>
         <HeaderWrap>
@@ -84,11 +100,14 @@ export const Header: React.FunctionComponent = () => {
                 <TimeNow className="nav-item">
                     <Clock />
                 </TimeNow>
-                <Link className="nav-item" to="/withdraw">Withdraw</Link>
+                {
+                    <Link className={`nav-item balance-item`} to="/withdraw">Withdraw</Link>
+                }
+                {/* <Link className="nav-item" to="/withdraw">Withdraw</Link>
                 <Balance className="nav-item balance-item">
-                    UAH {context.sum}
-                </Balance>
+                    {`₴ ${context.sum}`}
+                </Balance> */}
             </Nav>
         </HeaderWrap>
     </StyledHeader>
-}
+})
